@@ -1,7 +1,12 @@
 package com.example.StockCharting.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +19,7 @@ import com.example.StockCharting.Repository.Companystockexchangemaprepository;
 import com.example.StockCharting.Repository.StockExchangeRepository;
 
 @RestController
-@CrossOrigin("http:localhost:4200")
-
+@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class CompanystockexchangeController {
 @Autowired 
 Companystockexchangemaprepository compstkmaprepo;
@@ -36,5 +40,16 @@ public Companystockexchangemap mapcode(@RequestBody Companystockexchangemap cmps
 	csemap.setCompany(company);
 	csemap=compstkmaprepo.save(csemap);
 	return csemap;
+}
+@GetMapping(path="/getAllMappings")
+public List<Companystockexchangemap> getAll()
+{
+	List<Companystockexchangemap> compstockmap=compstkmaprepo.findAll();
+	return compstockmap;
+}
+@DeleteMapping(path="/{id}/delete")
+public void delete(@PathVariable Long id)
+{
+	compstkmaprepo.deleteById(id);
 }
 }

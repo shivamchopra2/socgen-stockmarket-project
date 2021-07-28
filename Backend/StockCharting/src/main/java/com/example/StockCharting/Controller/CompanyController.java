@@ -18,7 +18,7 @@ import com.example.StockCharting.Entity.IPODetail;
 import com.example.StockCharting.Service.CompanyService;
 
 @RestController
-@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
+@CrossOrigin(origins= "http://localhost:4200")
 @RequestMapping("/companies")
 public class CompanyController {
 	@Autowired

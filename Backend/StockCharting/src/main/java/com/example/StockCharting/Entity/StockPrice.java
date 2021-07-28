@@ -34,7 +34,7 @@ public class StockPrice {
 	private Company company;
 	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date datee;
-	private Time timee;
+	private String timee;
 	private float shareprice;
 	
 	public long getId() {
@@ -86,12 +86,12 @@ public class StockPrice {
 	}
 
 
-	public Time getTimee() {
+	public String getTimee() {
 		return timee;
 	}
 
 
-	public void setTimee(Time timee) {
+	public void setTimee(String timee) {
 		this.timee = timee;
 	}
 
@@ -107,7 +107,7 @@ public class StockPrice {
 
 
 	public StockPrice( String exchangename, String companycode,  
-			Date datee, Time timee, float shareprice) {
+			Date datee, String timee, float shareprice) {
 		super();
 	
 		this.exchangename = exchangename;

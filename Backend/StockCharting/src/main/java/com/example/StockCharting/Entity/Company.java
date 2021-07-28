@@ -45,14 +45,14 @@ private String boardOfDirectors;
 @Type(type = "text")
 private String companyBrief;
 
-@OneToMany(fetch = FetchType.LAZY,mappedBy="company", cascade=CascadeType.ALL)
+@OneToMany(fetch = FetchType.LAZY,mappedBy="company")
 private List<StockPrice> stockPrice;
 
 @OneToOne(fetch = FetchType.LAZY, mappedBy = "company", cascade = CascadeType.ALL)
 @JsonIgnore
 private IPODetail ipo;
 
-@OneToMany(mappedBy = "company", cascade=CascadeType.ALL)
+@OneToMany(mappedBy = "company")
 private List<Companystockexchangemap> compstockmap=new ArrayList();
 
 @ManyToOne(fetch = FetchType.LAZY)

@@ -13,46 +13,34 @@ public class User1 {
 	@Id
    @GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String name;
+	private String username;
 	private String password;
 	private String email;
 	private Boolean confirmed;
-	private Boolean admin;
+	private String confirmationToken;
 	private String role;
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRoles(String roles) {
-		this.role = roles;
-	}
-
-
-	
 	public long getId() {
 		return id;
 	}
-	
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
-	public String getname() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
-	public void setname(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getpassword() {
+	public String getPassword() {
 		return password;
 	}
-	public void setpassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getemail() {
+	public String getEmail() {
 		return email;
 	}
-	public void setemail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 	public Boolean getConfirmed() {
@@ -61,27 +49,29 @@ public class User1 {
 	public void setConfirmed(Boolean confirmed) {
 		this.confirmed = confirmed;
 	}
-	public Boolean getAdmin() {
-		return admin;
+	public String getConfirmationToken() {
+		return confirmationToken;
 	}
-	public void setAdmin(Boolean admin) {
-		this.admin = admin;
+	public void setConfirmationToken(String confirmationToken) {
+		this.confirmationToken = confirmationToken;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public User1( String username, String password, String email) {
+		super();
+	
+		this.username = username;
+		this.password = password;
+		this.email = email;
 	}
 	public User1() {
-		
 		super();
 	}
 
-	public User1(long id, String name, String password, String email ,Boolean admin, String role) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.password = password;
-		this.email = email;
-		this.confirmed = false;
-		this.admin = admin;
-		this.role = role;
-	}
 
 	
 }
